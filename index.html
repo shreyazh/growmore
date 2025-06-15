@@ -1,692 +1,519 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>GrowMore Community - Detailed Competitive Analysis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extensive Website Analysis Report - GrowMore Community | Shreyash Srivastva</title>
     <style>
-        body {
-            font-family: 'Georgia', Arial, sans-serif;
-            line-height: 1.6;
-            margin: 40px;
-            color: #333;
-            max-width: 1200px;
-            background: white;
-        }
-        
-        .header {
-            text-align: center;
-            border-bottom: 3px solid #2c5aa0;
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .header h1 {
-            color: #2c5aa0;
-            font-size: 24px;
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            opacity: 0.9;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #e0e7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .hero .website-url {
+            font-size: 1.1rem;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            display: inline-block;
+            margin-bottom: 3rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Main Content */
+        .main-content {
+            background: white;
+            margin: 2rem 0;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .content-section {
+            padding: 3rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        /* Report Cards */
+        .report-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .report-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .report-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+
+        .report-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .report-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+
+        .report-card p {
+            color: #718096;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .report-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .report-link:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Profile Section */
+        .profile-section {
+            background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+            color: white;
+            padding: 4rem 3rem;
+            text-align: center;
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: 700;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile-name {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-title {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            color: #cbd5e0;
+        }
+
+        .profile-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.95;
+        }
+
+        .achievements {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .achievement {
+            text-align: center;
+        }
+
+        .achievement-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #fff, #e0e7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .achievement-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        
-        .header h2 {
-            color: #666;
-            font-size: 18px;
-            margin: 10px 0 0 0;
-            font-weight: normal;
-        }
-        
-        .section {
-            margin: 30px 0;
-            page-break-inside: avoid;
-        }
-        
-        .section h2 {
-            color: #2c5aa0;
-            font-size: 18px;
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 8px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .section h3 {
-            color: #444;
-            font-size: 16px;
-            margin: 25px 0 15px 0;
-            font-weight: bold;
-        }
-        
-        .section h4 {
-            color: #2c5aa0;
-            font-size: 14px;
-            margin: 20px 0 10px 0;
-            font-weight: bold;
-        }
-        
-        .competitor-block {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px 0;
-            background: #f9f9f9;
-        }
-        
-        .competitor-header {
-            background: #2c5aa0;
+
+        .linkedin-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #0077b5;
             color: white;
-            padding: 10px 15px;
-            margin: -20px -20px 15px -20px;
-            border-radius: 7px 7px 0 0;
-            font-weight: bold;
-            font-size: 16px;
-        }
-        
-        .market-position {
-            font-style: italic;
-            color: #666;
-            font-size: 14px;
-        }
-        
-        .advantages {
-            background: #e8f5e8;
-            border-left: 4px solid #4CAF50;
-            padding: 15px;
-            margin: 15px 0;
-        }
-        
-        .disadvantages {
-            background: #ffe8e8;
-            border-left: 4px solid #f44336;
-            padding: 15px;
-            margin: 15px 0;
-        }
-        
-        .advantages h4 {
-            color: #2e7d32;
-            margin-top: 0;
-        }
-        
-        .disadvantages h4 {
-            color: #c62828;
-            margin-top: 0;
-        }
-        
-        .matrix-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            font-size: 12px;
-        }
-        
-        .matrix-table th {
-            background: #2c5aa0;
-            color: white;
-            padding: 12px 8px;
-            text-align: center;
-            font-weight: bold;
-        }
-        
-        .matrix-table td {
-            padding: 10px 8px;
-            text-align: center;
-            border: 1px solid #ddd;
-        }
-        
-        .matrix-table tr:nth-child(even) {
-            background: #f9f9f9;
-        }
-        
-        .score-excellent { background: #c8e6c9; color: #2e7d32; font-weight: bold; }
-        .score-good { background: #dcedc8; color: #388e3c; font-weight: bold; }
-        .score-average { background: #fff3e0; color: #f57c00; font-weight: bold; }
-        .score-poor { background: #ffcdd2; color: #d32f2f; font-weight: bold; }
-        .score-critical { background: #ef9a9a; color: #b71c1c; font-weight: bold; }
-        
-        .recommendations {
-            background: #f0f7ff;
-            border: 2px solid #2c5aa0;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px 0;
-        }
-        
-        .priority-high {
-            background: #ffebee;
-            border-left: 4px solid #f44336;
-            padding: 10px;
-            margin: 10px 0;
-        }
-        
-        .priority-medium {
-            background: #fff8e1;
-            border-left: 4px solid #ff9800;
-            padding: 10px;
-            margin: 10px 0;
-        }
-        
-        .priority-low {
-            background: #e8f5e8;
-            border-left: 4px solid #4caf50;
-            padding: 10px;
-            margin: 10px 0;
-        }
-        
-        .summary-box {
-            background: #f5f5f5;
-            border: 2px solid #2c5aa0;
+            padding: 1rem 2rem;
             border-radius: 10px;
-            padding: 25px;
-            margin: 30px 0;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
         }
-        
-        .pricing-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
+
+        .linkedin-btn:hover {
+            background: #005582;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 119, 181, 0.3);
         }
-        
-        .pricing-table th {
-            background: #2c5aa0;
+
+        /* Footer */
+        .footer {
+            background: #1a202c;
             color: white;
-            padding: 12px;
             text-align: center;
+            padding: 2rem 0;
         }
-        
-        .pricing-table td {
-            padding: 10px;
-            text-align: center;
-            border: 1px solid #ddd;
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        
-        ul {
-            padding-left: 20px;
+
+        .hero, .report-card, .profile-section {
+            animation: fadeInUp 0.8s ease-out;
         }
-        
-        li {
-            margin: 8px 0;
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .report-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .achievements {
+                gap: 2rem;
+            }
+            
+            .content-section {
+                padding: 2rem;
+            }
+            
+            .profile-section {
+                padding: 3rem 2rem;
+            }
         }
-        
-        .page-break {
-            page-break-before: always;
-        }
-        
-        @media print {
-            body { margin: 20px; }
-            .section { page-break-inside: avoid; }
+
+        /* Icons */
+        .icon {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
         }
     </style>
 </head>
 <body>
-
-<div class="header">
-    <h1>Detailed Competitive Analysis</h1>
-    <h2>GrowMore Community vs. Major Immigration Forum Competitors</h2>
-    <p style="color: #666; margin-top: 15px;">Professional Website Survey & Market Analysis Report</p>
-</div>
-
-<div class="section">
-    <h2>🎯 Competitive Landscape Overview</h2>
-    <p>The Australian immigration consultation and community forum market is highly competitive, with several established players dominating different segments. Based on research, the main competitive categories are:</p>
-    <ul>
-        <li><strong>Established Community Forums</strong> (General Immigration)</li>
-        <li><strong>Tracking & Status Platforms</strong> (Application Monitoring)</li>
-        <li><strong>Expat Lifestyle Communities</strong> (Broader Expatriate Support)</li>
-        <li><strong>Professional Legal Services</strong> (Official Immigration Advice)</li>
-        <li><strong>Social Media Groups</strong> (Informal Community Support)</li>
-    </ul>
-</div>
-
-<div class="section page-break">
-    <h2>🏆 Major Competitors Analysis</h2>
-
-    <div class="competitor-block">
-        <div class="competitor-header">
-            1. AUSTRALIA FORUM (australiaforum.com)
-            <div class="market-position">Market Position: Established Community Leader</div>
-        </div>
-        
-        <div class="advantages">
-            <h4>✅ Advantages Over GrowMore:</h4>
-            <ul>
-                <li><strong>Established Brand Recognition:</strong> Long-standing forum community dedicated to Australian migrants with comprehensive coverage of residency, taxes, documents, visas, travel, health care, finances, banking, and classifieds</li>
-                <li><strong>Comprehensive Coverage:</strong> Broader topics beyond just immigration (lifestyle, banking, healthcare)</li>
-                <li><strong>Large User Base:</strong> Established community with years of archived discussions</li>
-                <li><strong>SEO Dominance:</strong> Strong search engine presence and authority</li>
-                <li><strong>Organized Categories:</strong> Well-structured forum sections for different topics</li>
-                <li><strong>Success Stories:</strong> Features member immigration success stories</li>
-                <li><strong>Mobile Accessibility:</strong> Better mobile optimization</li>
-                <li><strong>Content Volume:</strong> Extensive archive of immigration-related discussions</li>
+    <header class="header">
+        <nav class="nav container">
+            <a href="#" class="logo">Shreyash Srivastva</a>
+            <ul class="nav-links">
+                <li><a href="#reports">Reports</a></li>
+                <li><a href="#profile">About</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-        </div>
-        
-        <div class="disadvantages">
-            <h4>❌ Disadvantages vs. GrowMore:</h4>
-            <ul>
-                <li><strong>Less Personalized Service:</strong> Limited direct expert consultation</li>
-                <li><strong>Overwhelming Interface:</strong> Information overload for new users</li>
-                <li><strong>Generic Advice:</strong> Less specialized expert guidance</li>
-                <li><strong>Outdated Design:</strong> Older forum-style interface</li>
-                <li><strong>Limited Professional Support:</strong> Fewer certified migration agents</li>
-            </ul>
-        </div>
-    </div>
+        </nav>
+    </header>
 
-    <div class="competitor-block">
-        <div class="competitor-header">
-            2. TRACKITT (trackitt.com)
-            <div class="market-position">Market Position: Application Tracking Specialist</div>
+    <section class="hero">
+        <div class="container">
+            <h1>Extensive Website Analysis Report</h1>
+            <p class="subtitle">Comprehensive Technical & Strategic Assessment</p>
+            <div class="website-url">https://growmore.community</div>
         </div>
-        
-        <div class="advantages">
-            <h4>✅ Advantages Over GrowMore:</h4>
-            <ul>
-                <li><strong>Unique Value Proposition:</strong> Specialized in checking green card status by sharing application details with other applicants</li>
-                <li><strong>Data-Driven Approach:</strong> Focus on application tracking and timelines</li>
-                <li><strong>Timeline Predictions:</strong> Historical data for processing time estimates</li>
-                <li><strong>Status Updates:</strong> Real-time application progress tracking</li>
-                <li><strong>Community Intelligence:</strong> Crowd-sourced processing information</li>
-                <li><strong>Multiple Countries:</strong> Coverage beyond just Australia</li>
-                <li><strong>Analytics Features:</strong> Data visualization for application trends</li>
-            </ul>
+    </section>
+
+    <main class="main-content container">
+        <section class="content-section" id="reports">
+            <h2 class="section-title">Analysis Reports & Insights</h2>
+            
+            <div class="report-grid">
+                <div class="report-card">
+                    <h3>In-App Optimization Analysis</h3>
+                    <p>Comprehensive mobile application performance review including user experience optimization, loading speed analysis, and conversion rate improvements with actionable recommendations.</p>
+                    <a href="#" class="report-link">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M7 2v20l12-6-12-6z"/>
+                        </svg>
+                        View Report
+                    </a>
+                </div>
+
+                <div class="report-card">
+                    <h3>Professional Website Survey Report</h3>
+                    <p>Detailed technical assessment covering performance metrics, user experience evaluation, SEO analysis, and strategic improvement roadmap for GrowMore Community platform.</p>
+                    <a href="src.html" class="report-link">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                        </svg>
+                        Access Full Survey
+                    </a>
+                </div>
+
+                <div class="report-card">
+                    <h3>Detailed Competitive Analysis</h3>
+                    <p>Market positioning study comparing GrowMore Community against industry competitors, feature analysis, pricing strategies, and market opportunity identification.</p>
+                    <a href="main.html" class="report-link">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M3 3v18h18"/>
+                            <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/>
+                        </svg>
+                        View Analysis
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="profile-section" id="profile">
+            <div class="profile-avatar">SS</div>
+            <h2 class="profile-name">Shreyash Srivastva</h2>
+            <p class="profile-title">Machine Learning Engineer & Research Specialist</p>
+            
+            <p class="profile-description">
+                Based in Lucknow, Uttar Pradesh, I am a dedicated Machine Learning Engineer with extensive experience in 
+                developing cutting-edge AI solutions and conducting comprehensive website analysis. My expertise spans 
+                across technical optimization, data-driven insights, and strategic digital transformation.
+            </p>
+
+            <div class="achievements">
+                <div class="achievement">
+                    <div class="achievement-number">10+</div>
+                    <div class="achievement-label">Hackathon Wins</div>
+                </div>
+                <div class="achievement">
+                    <div class="achievement-number">15+</div>
+                    <div class="achievement-label">Research Papers</div>
+                </div>
+                <div class="achievement">
+                    <div class="achievement-number">50+</div>
+                    <div class="achievement-label">Projects Delivered</div>
+                </div>
+            </div>
+
+            <p class="profile-description">
+                My track record includes 10-time hackathon winner with publications in reputed research journals. 
+                I specialize in translating complex technical challenges into actionable business solutions, 
+                combining deep technical expertise with strategic business acumen.
+            </p>
+
+            <a href="https://www.linkedin.com/in/shreyashsrivastva/" target="_blank" class="linkedin-btn">
+                <svg class="icon" viewBox="0 0 24 24">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                    <rect x="2" y="9" width="4" height="12"/>
+                    <circle cx="4" cy="4" r="2"/>
+                </svg>
+                Connect on LinkedIn
+            </a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Shreyash Srivastva. All rights reserved. | Professional Website Analysis & ML Engineering Services</p>
         </div>
-        
-        <div class="disadvantages">
-            <h4>❌ Disadvantages vs. GrowMore:</h4>
-            <ul>
-                <li><strong>Limited Consultation:</strong> No direct expert advice services</li>
-                <li><strong>Narrow Focus:</strong> Primarily tracking-focused, less community discussion</li>
-                <li><strong>Complex Interface:</strong> Can be overwhelming for new users</li>
-                <li><strong>Less Community Feel:</strong> More transactional than community-oriented</li>
-                <li><strong>Limited Content Quality:</strong> User-generated content without expert validation</li>
-            </ul>
-        </div>
-    </div>
+    </footer>
 
-    <div class="competitor-block">
-        <div class="competitor-header">
-            3. EXPAT FORUM (expatforum.com)
-            <div class="market-position">Market Position: Global Expat Community</div>
-        </div>
-        
-        <div class="advantages">
-            <h4>✅ Advantages Over GrowMore:</h4>
-            <ul>
-                <li><strong>Global Reach:</strong> Covers people moving to Australia from other countries with discussions on immigration, property, sport, socializing, and food</li>
-                <li><strong>Lifestyle Integration:</strong> Broader expat life topics beyond immigration</li>
-                <li><strong>Multiple Countries:</strong> Not limited to Australia</li>
-                <li><strong>Active Community:</strong> Large, engaged user base</li>
-                <li><strong>Diverse Topics:</strong> Covers social, cultural, and lifestyle aspects</li>
-                <li><strong>Established Platform:</strong> Years of operation and content</li>
-                <li><strong>Search Functionality:</strong> Better content discovery features</li>
-            </ul>
-        </div>
-        
-        <div class="disadvantages">
-            <h4>❌ Disadvantages vs. GrowMore:</h4>
-            <ul>
-                <li><strong>Less Specialized:</strong> Diluted focus across multiple countries</li>
-                <li><strong>Generic Immigration Advice:</strong> Less Australia-specific expertise</li>
-                <li><strong>No Professional Services:</strong> Limited expert consultation options</li>
-                <li><strong>Information Overload:</strong> Too broad for specific immigration needs</li>
-                <li><strong>Less Expert Validation:</strong> Community-driven without professional oversight</li>
-            </ul>
-        </div>
-    </div>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
 
-    <div class="competitor-block">
-        <div class="competitor-header">
-            4. BRITISH EXPATS FORUM (britishexpats.com)
-            <div class="market-position">Market Position: UK-Australia Migration Specialist</div>
-        </div>
-        
-        <div class="advantages">
-            <h4>✅ Advantages Over GrowMore:</h4>
-            <ul>
-                <li><strong>Niche Focus:</strong> Specialized for British expatriates moving to Australia, the most popular destination for British expats</li>
-                <li><strong>Targeted Audience:</strong> Clear demographic focus</li>
-                <li><strong>Cultural Relevance:</strong> UK-specific immigration pathways and cultural adaptation</li>
-                <li><strong>Established Community:</strong> Strong brand recognition among British expats</li>
-                <li><strong>Lifestyle Integration:</strong> Covers broader expat lifestyle topics</li>
-                <li><strong>Success Stories:</strong> Proven track record with British migrants</li>
-            </ul>
-        </div>
-        
-        <div class="disadvantages">
-            <h4>❌ Disadvantages vs. GrowMore:</h4>
-            <ul>
-                <li><strong>Limited Audience:</strong> Only serves British nationals</li>
-                <li><strong>Narrow Geographic Focus:</strong> Excludes other nationalities</li>
-                <li><strong>Less Professional Services:</strong> Limited expert consultation</li>
-                <li><strong>Outdated Platform:</strong> Older forum technology</li>
-                <li><strong>Limited Languages:</strong> English-only content</li>
-            </ul>
-        </div>
-    </div>
+        // Add hover effects to report cards
+        const reportCards = document.querySelectorAll('.report-card');
+        reportCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
 
-    <div class="competitor-block">
-        <div class="competitor-header">
-            5. IARC (iarc.org.au)
-            <div class="market-position">Market Position: Professional Legal Services</div>
-        </div>
-        
-        <div class="advantages">
-            <h4>✅ Advantages Over GrowMore:</h4>
-            <ul>
-                <li><strong>Professional Credibility:</strong> Specialist, not-for-profit community legal centre providing free immigration advice and assistance</li>
-                <li><strong>Legal Expertise:</strong> Qualified legal professionals</li>
-                <li><strong>Free Services:</strong> No-cost consultation for eligible clients</li>
-                <li><strong>Government Recognition:</strong> Official legal status and accreditation</li>
-                <li><strong>Comprehensive Support:</strong> Full legal representation services</li>
-                <li><strong>NSW Coverage:</strong> Established regional presence</li>
-            </ul>
-        </div>
-        
-        <div class="disadvantages">
-            <h4>❌ Disadvantages vs. GrowMore:</h4>
-            <ul>
-                <li><strong>Limited Scope:</strong> Only serves NSW residents</li>
-                <li><strong>Restricted Eligibility:</strong> Free services with income/situation requirements</li>
-                <li><strong>No Community Aspect:</strong> Lacks peer-to-peer support</li>
-                <li><strong>Limited Availability:</strong> Capacity constraints for appointments</li>
-                <li><strong>Formal Process:</strong> Less accessible, more bureaucratic approach</li>
-            </ul>
-        </div>
-    </div>
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-    <div class="competitor-block">
-        <div class="competitor-header">
-            6. FACEBOOK GROUPS (Various)
-            <div class="market-position">Market Position: Social Media Communities</div>
-        </div>
-        
-        <div class="advantages">
-            <h4>✅ Advantages Over GrowMore:</h4>
-            <ul>
-                <li><strong>Massive Reach:</strong> Billions of potential users on Facebook platform</li>
-                <li><strong>Real-time Interaction:</strong> Instant messaging and notifications</li>
-                <li><strong>Visual Content:</strong> Better support for images, videos, and documents</li>
-                <li><strong>Easy Sharing:</strong> Simple content sharing and viral potential</li>
-                <li><strong>Mobile-First:</strong> Optimized for mobile usage</li>
-                <li><strong>Zero Barrier Entry:</strong> No registration required for viewing</li>
-            </ul>
-        </div>
-        
-        <div class="disadvantages">
-            <h4>❌ Disadvantages vs. GrowMore:</h4>
-            <ul>
-                <li><strong>Information Quality:</strong> Unverified advice and misinformation</li>
-                <li><strong>No Expert Oversight:</strong> Lack of professional moderation</li>
-                <li><strong>Privacy Concerns:</strong> Facebook's data collection policies</li>
-                <li><strong>Temporary Content:</strong> Information gets buried quickly</li>
-                <li><strong>Platform Dependency:</strong> Subject to Facebook's policy changes</li>
-                <li><strong>Limited Search:</strong> Poor content discovery and archiving</li>
-            </ul>
-        </div>
-    </div>
-</div>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
 
-<div class="section page-break">
-    <h2>📊 Competitive Positioning Matrix</h2>
-    <table class="matrix-table">
-        <thead>
-            <tr>
-                <th>Feature/Aspect</th>
-                <th>GrowMore</th>
-                <th>Australia Forum</th>
-                <th>TrackIt</th>
-                <th>Expat Forum</th>
-                <th>British Expats</th>
-                <th>IARC</th>
-                <th>Facebook Groups</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>Expert Consultation</strong></td>
-                <td class="score-good">✅ Strong</td>
-                <td class="score-poor">❌ Limited</td>
-                <td class="score-poor">❌ None</td>
-                <td class="score-poor">❌ Limited</td>
-                <td class="score-poor">❌ Limited</td>
-                <td class="score-excellent">✅ Excellent</td>
-                <td class="score-poor">❌ None</td>
-            </tr>
-            <tr>
-                <td><strong>Community Engagement</strong></td>
-                <td class="score-average">⚠️ Growing</td>
-                <td class="score-excellent">✅ Excellent</td>
-                <td class="score-average">⚠️ Moderate</td>
-                <td class="score-excellent">✅ Excellent</td>
-                <td class="score-good">✅ Good</td>
-                <td class="score-poor">❌ None</td>
-                <td class="score-excellent">✅ High</td>
-            </tr>
-            <tr>
-                <td><strong>Technical Performance</strong></td>
-                <td class="score-critical">🚨 Poor</td>
-                <td class="score-good">✅ Good</td>
-                <td class="score-good">✅ Good</td>
-                <td class="score-good">✅ Good</td>
-                <td class="score-average">⚠️ Average</td>
-                <td class="score-good">✅ Good</td>
-                <td class="score-excellent">✅ Excellent</td>
-            </tr>
-            <tr>
-                <td><strong>Content Quality</strong></td>
-                <td class="score-average">⚠️ Mixed</td>
-                <td class="score-good">✅ Good</td>
-                <td class="score-average">⚠️ Variable</td>
-                <td class="score-average">⚠️ Variable</td>
-                <td class="score-good">✅ Good</td>
-                <td class="score-excellent">✅ Excellent</td>
-                <td class="score-critical">🚨 Poor</td>
-            </tr>
-            <tr>
-                <td><strong>User Experience</strong></td>
-                <td class="score-critical">🚨 Poor</td>
-                <td class="score-good">✅ Good</td>
-                <td class="score-average">⚠️ Complex</td>
-                <td class="score-good">✅ Good</td>
-                <td class="score-average">⚠️ Average</td>
-                <td class="score-good">✅ Professional</td>
-                <td class="score-good">✅ Familiar</td>
-            </tr>
-            <tr>
-                <td><strong>Mobile Optimization</strong></td>
-                <td class="score-critical">🚨 Critical</td>
-                <td class="score-good">✅ Good</td>
-                <td class="score-good">✅ Good</td>
-                <td class="score-good">✅ Good</td>
-                <td class="score-average">⚠️ Average</td>
-                <td class="score-good">✅ Good</td>
-                <td class="score-excellent">✅ Excellent</td>
-            </tr>
-            <tr>
-                <td><strong>Search Functionality</strong></td>
-                <td class="score-poor">❌ Missing</td>
-                <td class="score-good">✅ Good</td>
-                <td class="score-excellent">✅ Excellent</td>
-                <td class="score-good">✅ Good</td>
-                <td class="score-average">⚠️ Basic</td>
-                <td class="score-average">⚠️ Limited</td>
-                <td class="score-critical">🚨 Poor</td>
-            </tr>
-            <tr>
-                <td><strong>Professional Credibility</strong></td>
-                <td class="score-average">⚠️ Limited</td>
-                <td class="score-average">⚠️ Community</td>
-                <td class="score-average">⚠️ Data-focused</td>
-                <td class="score-average">⚠️ Community</td>
-                <td class="score-average">⚠️ Community</td>
-                <td class="score-excellent">✅ Excellent</td>
-                <td class="score-critical">🚨 None</td>
-            </tr>
-            <tr>
-                <td><strong>Specialization</strong></td>
-                <td class="score-good">✅ Immigration Focus</td>
-                <td class="score-average">⚠️ Broad</td>
-                <td class="score-good">✅ Tracking Focus</td>
-                <td class="score-average">⚠️ Broad</td>
-                <td class="score-good">✅ UK-AU Focus</td>
-                <td class="score-good">✅ Legal Focus</td>
-                <td class="score-poor">❌ Unfocused</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-
-<div class="section page-break">
-    <h2>🎯 GrowMore's Competitive Advantages</h2>
-    
-    <div class="advantages">
-        <h3>✅ UNIQUE STRENGTHS</h3>
-        <ul>
-            <li><strong>Expert Consultation Focus:</strong> Direct access to RMA (Registered Migration Agent) services</li>
-            <li><strong>Immigration Specialization:</strong> Laser focus on Australian immigration processes</li>
-            <li><strong>Multilingual Support:</strong> Content in multiple languages (English/Hindi observed)</li>
-            <li><strong>Personalized Service:</strong> One-on-one expert consultation offerings</li>
-            <li><strong>Niche Community:</strong> Targeted audience with specific immigration needs</li>
-            <li><strong>Expert Validation:</strong> Professional oversight of community discussions</li>
-        </ul>
-    </div>
-
-    <div class="recommendations">
-        <h3>🚀 POTENTIAL COMPETITIVE ADVANTAGES</h3>
-        <ul>
-            <li><strong>AI Integration:</strong> Could implement AI chatbots for instant responses</li>
-            <li><strong>Mobile-First Design:</strong> Opportunity to lead in mobile user experience</li>
-            <li><strong>Video Consultations:</strong> Modern consultation delivery methods</li>
-            <li><strong>Document Services:</strong> Integrated document preparation and review</li>
-            <li><strong>Success Tracking:</strong> Personal immigration journey tracking</li>
-            <li><strong>Regional Specialization:</strong> Focus on specific immigration pathways</li>
-        </ul>
-    </div>
-</div>
-
-<div class="section">
-    <h2>🚨 Critical Competitive Disadvantages</h2>
-    
-    <div class="disadvantages">
-        <h3>❌ MAJOR WEAKNESSES</h3>
-        <ul>
-            <li><strong>Technical Performance:</strong> Severe loading and functionality issues</li>
-            <li><strong>User Experience:</strong> Poor interface design and navigation</li>
-            <li><strong>Brand Recognition:</strong> Limited market presence and awareness</li>
-            <li><strong>Content Volume:</strong> Insufficient content compared to established competitors</li>
-            <li><strong>SEO Performance:</strong> Poor search engine visibility</li>
-            <li><strong>Mobile Experience:</strong> Critical mobile optimization issues</li>
-            <li><strong>Community Size:</strong> Small user base compared to established forums</li>
-        </ul>
-    </div>
-
-    <div class="advantages">
-        <h3>⚠️ SIGNIFICANT GAPS</h3>
-        <ul>
-            <li><strong>Search Functionality:</strong> No apparent search or filtering capabilities</li>
-            <li><strong>Content Organization:</strong> Poor categorization and information architecture</li>
-            <li><strong>Social Features:</strong> Limited user profiles and engagement tools</li>
-            <li><strong>Integration:</strong> Lack of third-party integrations and tools</li>
-            <li><strong>Analytics:</strong> No visible tracking or progress monitoring features</li>
-        </ul>
-    </div>
-</div>
-
-<div class="section page-break">
-    <h2>📈 Strategic Recommendations</h2>
-
-    <div class="priority-high">
-        <h3>🔴 IMMEDIATE PRIORITIES (0-3 months)</h3>
-        <ul>
-            <li><strong>Fix Technical Issues:</strong> Address critical performance and loading problems</li>
-            <li><strong>Mobile Optimization:</strong> Ensure responsive design across all devices</li>
-            <li><strong>User Experience Overhaul:</strong> Complete redesign of interface and navigation</li>
-            <li><strong>Search Implementation:</strong> Add robust search and filtering capabilities</li>
-            <li><strong>Content Organization:</strong> Implement proper categorization system</li>
-        </ul>
-    </div>
-
-    <div class="priority-medium">
-        <h3>🟡 SHORT-TERM GOALS (3-6 months)</h3>
-        <ul>
-            <li><strong>SEO Optimization:</strong> Improve search engine rankings and visibility</li>
-            <li><strong>Content Strategy:</strong> Develop comprehensive content creation plan</li>
-            <li><strong>Community Building:</strong> Launch user engagement and retention programs</li>
-            <li><strong>Social Features:</strong> Implement user profiles, messaging, and social tools</li>
-            <li><strong>Marketing Campaign:</strong> Establish brand presence and awareness</li>
-        </ul>
-    </div>
-
-    <div class="priority-low">
-        <h3>🟢 LONG-TERM STRATEGY (6-12 months)</h3>
-        <ul>
-            <li><strong>AI Integration:</strong> Implement intelligent chatbots and automation</li>
-            <li><strong>Advanced Tools:</strong> Develop tracking, analytics, and progress monitoring</li>
-            <li><strong>Partnership Development:</strong> Collaborate with immigration services and agents</li>
-            <li><strong>Mobile App:</strong> Launch dedicated mobile application</li>
-            <li><strong>Expansion:</strong> Consider additional services and market segments</li>
-        </ul>
-    </div>
-</div>
-
-<div class="section">
-    <h2>💰 Competitive Pricing Analysis</h2>
-    <table class="pricing-table">
-        <thead>
-            <tr>
-                <th>Service Type</th>
-                <th>GrowMore</th>
-                <th>Australia Forum</th>
-                <th>TrackIt</th>
-                <th>Expat Forum</th>
-                <th>IARC</th>
-                <th>Market Average</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>Basic Membership</strong></td>
-                <td>Unknown</td>
-                <td>Free</td>
-                <td>Free</td>
-                <td>Free</td>
-                <td>Free</td>
-                <td>Free</td>
-            </tr>
-            <tr>
-                <td><strong>Premium Features</strong></td>
-                <td>Unknown</td>
-                <td>$20-50/year</td>
-                <td>$30-60/year</td>
-                <td>$25-40/year</td>
-                <td>Free (eligible)</td>
-                <td>$25-50/year</td>
-            </tr>
-            <tr>
-                <td><strong>Expert Consultation</strong></td>
-                <td>Special Offer</td>
-                <td>$150-300/hour</td>
-                <td>Not Available</td>
-                <td>Not Available</td>
-                <td>Free (eligible)</td>
-                <td>$200-400/hour</td>
-            </tr>
-            <tr>
-                <td><strong>Document Review</strong></td>
-                <td>Unknown</td>
-                <td>Not Available</td>
-                <td>Not Available</td>
-                <td>Not Available</td>
-                <td>Free (eligible)</td>
-                <td>$100-200/service</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-
-<div class="section page-break">
-    <h2>🏁 Conclusion & Competitive Positioning</h2>
-
-    <div class="summary-box">
-        <h3>Current Market Position</h3>
-        <p>GrowMore Community is currently positioned as a <strong>challenger</strong> in the Australian immigration forum market, with significant potential but critical execution gaps.</p>
+        // Observe all animated elements
+        document.querySelectorAll('.report-card, .achievement').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
