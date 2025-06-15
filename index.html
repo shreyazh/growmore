@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -140,14 +141,13 @@
             border-radius: 2px;
         }
 
-        /* Report Cards - Centered grid layout */
+        /* Report Cards - Fixed grid centering */
         .report-grid {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
             margin: 3rem 0;
             justify-content: center;
-            align-items: stretch;
         }
 
         .report-card {
@@ -159,12 +159,12 @@
             position: relative;
             overflow: hidden;
             width: 100%;
-            max-width: 350px;
+            max-width: 380px;
             min-height: 280px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            flex: 1 1 350px;
+            margin: 0 auto;
         }
 
         .report-card::before {
@@ -350,8 +350,7 @@
             }
             
             .report-grid {
-                flex-direction: column;
-                align-items: center;
+                grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
             
@@ -387,7 +386,7 @@
             <ul class="nav-links">
                 <li><a href="#reports">Reports</a></li>
                 <li><a href="#profile">About</a></li>
-                <li><a href="https://www.linkedin.com/in/shreyashsrivastva">Contact</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -441,19 +440,19 @@
                         </a>
                     </div>
                 </div>
-
+                
                 <div class="report-card">
-                        <h3>An Envisioned Version of Growmore</h3>
-                        <p>Connect with verified migration experts, join a supportive community, and access comprehensive resources for your immigration journey to Australia, Canada, UK, and USA.</p>
-                        <a href="https://growmorebyshreyash.netlify.app" class="report-link">
-                            <svg class="icon" viewBox="0 0 24 24">
-                                <path d="M3 3v18h18"/>
-                                <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/>
-                            </svg>
-                            View Analysis
-                        </a>
+                    <h3>An Envisioned Version of Growmore</h3>
+                            <p>Connect with verified migration experts, join a supportive community, and access comprehensive resources for your immigration journey to Australia, Canada, UK, and USA.</p>
+                            <a href="https://growmorebyshreyash.netlify.app" class="report-link">
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <path d="M3 3v18h18"/>
+                                    <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/>
+                                </svg>
+                                View Website
+                            </a>
+                        </div>
                     </div>
-                </div>
             </section>
 
             <section class="profile-section" id="profile">
